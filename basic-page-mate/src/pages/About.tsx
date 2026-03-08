@@ -22,7 +22,7 @@ export default function About() {
               transition={{ duration: 0.4 }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">Обо мне</h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">Фотограф и визуальный рассказчик</p>
+              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">Сценарист и режиссёр визуальных историй</p>
             </motion.div>
           </div>
         </section>
@@ -151,3 +151,4 @@ export default function About() {
     </>
   );
 }
+

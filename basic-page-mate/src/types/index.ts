@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Core TypeScript interfaces for Frame Portfolio
  * Based on SPECIFICATION.md data model requirements
  */
@@ -21,6 +21,8 @@ export interface Project {
   category: ProjectCategory;
   year: string;
   coverImage: string;
+  videoUrl?: string;
+  embedEnabled?: boolean;
   images: ProjectImage[];
   description: string;
   client?: string;
@@ -57,3 +59,6 @@ export interface ContactSubmission {
   message: string;
   timestamp: Date;
 }
+
+
+

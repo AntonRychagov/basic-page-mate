@@ -15,6 +15,9 @@ interface ProjectCardProps {
 export function ProjectCard({ project, aspectRatio, showCategory = true, index = 0 }: ProjectCardProps) {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const ratio = aspectRatio || 'landscape';
+  const fallbackSrc = project.coverImage.includes('maxresdefault')
+    ? project.coverImage.replace('maxresdefault', 'hqdefault')
+    : project.coverImage;
 
   const aspectRatioClasses = {
     portrait: 'aspect-[3/4]',
@@ -38,6 +41,12 @@ export function ProjectCard({ project, aspectRatio, showCategory = true, index =
             )}
             loading={index < 6 ? 'eager' : 'lazy'}
             onLoad={() => setIsLoaded(true)}
+            onError={(e) => {
+              const img = e.currentTarget;
+              if (img.src !== fallbackSrc) {
+                img.src = fallbackSrc;
+              }
+            }}
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">

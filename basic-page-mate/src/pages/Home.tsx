@@ -24,14 +24,15 @@ export default function Home() {
               loop
               playsInline
               preload="metadata"
-              poster="https://images.pexels.com/videos/2675516/free-video-2675516.jpg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
+              poster="/IMG_1090.MP4"
               className="w-full h-full object-cover"
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.opacity = '0';
               }}
             >
-              <source src="https://videos.pexels.com/video-files/2675516/2675516-sd_960_540_24fps.mp4" type="video/mp4" />
+              <source src="/copy_42D92889-E6C2-48C3-92CC-F2B7878190BE.mov" />
+              <source src="/IMG_1090.MP4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
           </div>
@@ -106,7 +107,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
               <h2 className="text-4xl md:text-5xl font-light tracking-wide">Избранные проекты</h2>
-              <p className="text-lg text-muted-foreground font-light tracking-wide">Подборка недавних работ</p>
+              <p className="text-lg text-muted-foreground font-light tracking-wide">Избранные музыкальные видео и постановки</p>
             </div>
           </ScrollReveal>
 
@@ -122,7 +123,7 @@ export default function Home() {
                 to="/portfolio"
                 className="group inline-flex items-center gap-2 text-lg font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
               >
-                <span>Смотреть все проекты</span>
+                <span>Смотреть все работы</span>
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -132,3 +133,8 @@ export default function Home() {
     </>
   );
 }
+
+
+
+
+

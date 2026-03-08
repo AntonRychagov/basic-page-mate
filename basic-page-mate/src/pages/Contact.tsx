@@ -9,7 +9,7 @@ export default function Contact() {
     <>
       <SEOHead
         title="Контакты"
-        description={`Свяжитесь с ${photographerInfo.name} по вопросам съёмок, коллабораций и бронирования проектов. ${photographerInfo.availability}`}
+        description={`Свяжитесь с ${photographerInfo.name} по вопросам режиссуры, сценария, музыкальных клипов и коллабораций. ${photographerInfo.availability}`}
       />
 
       <div className="min-h-screen">
@@ -93,3 +93,4 @@ export default function Contact() {
     </>
   );
 }
+

@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Camera, User } from 'lucide-react';
+import { Calendar, MapPin, Camera, User, ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
@@ -28,6 +28,26 @@ export default function ProjectDetail() {
   const closeLightbox = () => {
     setLightboxOpen(false);
   };
+  const getYouTubeEmbedUrl = (url: string): string | null => {
+    try {
+      const parsed = new URL(url);
+      const videoId = parsed.searchParams.get('v');
+      if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+
+      if (parsed.hostname.includes('youtu.be')) {
+        const id = parsed.pathname.replace('/', '');
+        return id ? `https://www.youtube.com/embed/${id}` : null;
+      }
+
+      return null;
+    } catch {
+      return null;
+    }
+  };
+  const embedUrl = project.videoUrl ? getYouTubeEmbedUrl(project.videoUrl) : null;
+  const fallbackSrc = project.coverImage.includes('maxresdefault')
+    ? project.coverImage.replace('maxresdefault', 'hqdefault')
+    : project.coverImage;
 
   return (
     <>
@@ -39,21 +59,29 @@ export default function ProjectDetail() {
       />
 
       <div className="min-h-screen">
-        <motion.div
-          className="relative w-full h-[70vh] overflow-hidden bg-muted"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src={project.coverImage}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-        </motion.div>
+        <section className="px-6 lg:px-8 pt-10">
+          <motion.div
+            className="relative max-w-5xl mx-auto overflow-hidden rounded-sm bg-muted aspect-[16/8.8]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <img
+              src={project.coverImage}
+              alt={project.title}
+              className="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+              onError={(e) => {
+                const img = e.currentTarget;
+                if (img.src !== fallbackSrc) {
+                  img.src = fallbackSrc;
+                }
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+          </motion.div>
+        </section>
 
         <section className="max-w-4xl mx-auto px-6 lg:px-8 py-12 md:py-16">
           <motion.div
@@ -90,13 +118,40 @@ export default function ProjectDetail() {
             <div className="space-y-4">
               <p className="text-lg md:text-xl font-light leading-relaxed text-foreground">{project.description}</p>
             </div>
+            {embedUrl && project.embedEnabled !== false && (
+              <div className="pt-2">
+                <div className="aspect-video w-full overflow-hidden rounded-sm border border-border bg-black">
+                  <iframe
+                    src={embedUrl}
+                    title="YouTube video player"
+                    className="h-full w-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            )}
+            {project.videoUrl && (
+              <div className="pt-2">
+                <a
+                  href={project.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm md:text-base font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
+                >
+                  <span>Смотреть на YouTube</span>
+                  <ExternalLink className="size-4" />
+                </a>
+              </div>
+            )}
 
             <div className="grid md:grid-cols-2 gap-6 pt-4">
               {project.camera && (
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
                     <Camera className="size-4" />
-                    <span>Камера</span>
+                    <span>Роль</span>
                   </div>
                   <p className="font-light text-foreground">{project.camera}</p>
                 </div>
@@ -114,21 +169,23 @@ export default function ProjectDetail() {
           </motion.div>
         </section>
 
-        <section className="py-12 md:py-16">
-          <div className="space-y-8 md:space-y-12">
-            {project.images.map((image, index) => (
-              <ScrollReveal key={image.id} delay={index * 0.1}>
-                <ImageWithLightbox
-                  image={image}
-                  onClick={() => openLightbox(index)}
-                  priority={index === 0}
-                  index={0}
-                  className="w-full"
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
+        {!project.videoUrl && (
+          <section className="py-12 md:py-16">
+            <div className="space-y-8 md:space-y-12">
+              {project.images.map((image, index) => (
+                <ScrollReveal key={image.id} delay={index * 0.1}>
+                  <ImageWithLightbox
+                    image={image}
+                    onClick={() => openLightbox(index)}
+                    priority={index === 0}
+                    index={0}
+                    className="w-full"
+                  />
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         <Lightbox
           images={project.images}
@@ -141,3 +198,8 @@ export default function ProjectDetail() {
     </>
   );
 }
+
+
+
+
+

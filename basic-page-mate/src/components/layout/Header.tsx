@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Главная', path: '/' },
-  { name: 'Портфолио', path: '/portfolio' },
+  { name: 'Работы', path: '/portfolio' },
   { name: 'Обо мне', path: '/about' },
   { name: 'Контакты', path: '/contact' },
 ];
@@ -121,3 +121,4 @@ export function Header() {
     </motion.header>
   );
 }
+
