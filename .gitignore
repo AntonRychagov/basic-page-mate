@@ -3,3 +3,8 @@ server.log
 server.err.log
 .env
 .DS_Store
+
+# Separate local clone for root Pages repo
+AntonRychagov.github.io/
+AntonRychagov.github.io.bak/
+
