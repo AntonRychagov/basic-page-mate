@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+п»їimport { motion } from 'framer-motion';
 import { photographerInfo } from '@/data/photographer';
 import { getFeaturedProjects } from '@/data/projects';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { SEOHead } from '@/components/SEOHead';
+import { SEOHead } from '@/components/seo/SEOHead';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -87,7 +87,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <ScrollReveal>
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-light tracking-wide">О моей работе</h2>
+                <h2 className="text-3xl md:text-4xl font-light tracking-wide">Рћ РјРѕРµР№ СЂР°Р±РѕС‚Рµ</h2>
                 <div className="space-y-4 text-lg font-light leading-relaxed text-muted-foreground">
                   <p>{photographerInfo.biography.split('\n\n')[0]}</p>
                 </div>
@@ -95,7 +95,7 @@ export default function Home() {
                   to="/about"
                   className="inline-flex items-center gap-2 text-base font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors group"
                 >
-                  <span>Узнать больше обо мне</span>
+                  <span>РЈР·РЅР°С‚СЊ Р±РѕР»СЊС€Рµ РѕР±Рѕ РјРЅРµ</span>
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -106,8 +106,8 @@ export default function Home() {
         <section className="py-24 md:py-32 border-t border-border">
           <ScrollReveal>
             <div className="text-center mb-16 space-y-4 px-6">
-              <h2 className="text-4xl md:text-5xl font-light tracking-wide">Избранные проекты</h2>
-              <p className="text-lg text-muted-foreground font-light tracking-wide">Избранные музыкальные видео и постановки</p>
+              <h2 className="text-4xl md:text-5xl font-light tracking-wide">РР·Р±СЂР°РЅРЅС‹Рµ РїСЂРѕРµРєС‚С‹</h2>
+              <p className="text-lg text-muted-foreground font-light tracking-wide">РР·Р±СЂР°РЅРЅС‹Рµ РјСѓР·С‹РєР°Р»СЊРЅС‹Рµ РІРёРґРµРѕ Рё РїРѕСЃС‚Р°РЅРѕРІРєРё</p>
             </div>
           </ScrollReveal>
 
@@ -123,7 +123,7 @@ export default function Home() {
                 to="/portfolio"
                 className="group inline-flex items-center gap-2 text-lg font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
               >
-                <span>Смотреть все работы</span>
+                <span>РЎРјРѕС‚СЂРµС‚СЊ РІСЃРµ СЂР°Р±РѕС‚С‹</span>
                 <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
@@ -133,7 +133,6 @@ export default function Home() {
     </>
   );
 }
-
 
 
 

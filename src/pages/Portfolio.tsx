@@ -1,14 +1,14 @@
-import { projects } from '@/data/projects';
+п»їimport { projects } from '@/data/projects';
 import { PortfolioGrid } from '@/components/portfolio/PortfolioGrid';
-import { SEOHead } from '@/components/SEOHead';
+import { SEOHead } from '@/components/seo/SEOHead';
 import { motion } from 'framer-motion';
 
 export default function Portfolio() {
   return (
     <>
       <SEOHead
-        title="Работы"
-        description="Подборка работ Лены Велиевой: музыкальные клипы, режиссёрские проекты и визуальные истории."
+        title="Р Р°Р±РѕС‚С‹"
+        description="РџРѕРґР±РѕСЂРєР° СЂР°Р±РѕС‚ Р›РµРЅС‹ Р’РµР»РёРµРІРѕР№: РјСѓР·С‹РєР°Р»СЊРЅС‹Рµ РєР»РёРїС‹, СЂРµР¶РёСЃСЃС‘СЂСЃРєРёРµ РїСЂРѕРµРєС‚С‹ Рё РІРёР·СѓР°Р»СЊРЅС‹Рµ РёСЃС‚РѕСЂРёРё."
       />
 
       <div className="min-h-screen">
@@ -19,9 +19,9 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">Работы</h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">Р Р°Р±РѕС‚С‹</h1>
               <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide max-w-2xl mx-auto">
-                Кураторская подборка музыкальных клипов и режиссёрских работ
+                РљСѓСЂР°С‚РѕСЂСЃРєР°СЏ РїРѕРґР±РѕСЂРєР° РјСѓР·С‹РєР°Р»СЊРЅС‹С… РєР»РёРїРѕРІ Рё СЂРµР¶РёСЃСЃС‘СЂСЃРєРёС… СЂР°Р±РѕС‚
               </p>
             </motion.div>
           </div>
@@ -36,5 +36,4 @@ export default function Portfolio() {
     </>
   );
 }
-
 

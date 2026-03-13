@@ -1,15 +1,15 @@
-import { Link } from 'react-router-dom';
+п»їimport { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { SEOHead } from '@/components/SEOHead';
+import { SEOHead } from '@/components/seo/SEOHead';
 
 const NotFound = () => {
   return (
     <>
       <SEOHead
-        title="Страница не найдена"
-        description="Страница, которую вы ищете, не существует. Вернитесь на главную, чтобы продолжить просмотр."
+        title="РЎС‚СЂР°РЅРёС†Р° РЅРµ РЅР°Р№РґРµРЅР°"
+        description="РЎС‚СЂР°РЅРёС†Р°, РєРѕС‚РѕСЂСѓСЋ РІС‹ РёС‰РµС‚Рµ, РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. Р’РµСЂРЅРёС‚РµСЃСЊ РЅР° РіР»Р°РІРЅСѓСЋ, С‡С‚РѕР±С‹ РїСЂРѕРґРѕР»Р¶РёС‚СЊ РїСЂРѕСЃРјРѕС‚СЂ."
       />
 
       <main className="min-h-[calc(100vh-8rem)] flex items-center justify-center px-6">
@@ -34,7 +34,7 @@ const NotFound = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              Страница не найдена
+              РЎС‚СЂР°РЅРёС†Р° РЅРµ РЅР°Р№РґРµРЅР°
             </motion.h2>
 
             <motion.p
@@ -43,7 +43,7 @@ const NotFound = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              Страница, которую вы ищете, не существует или была перемещена. Вернём вас к нужному разделу.
+              РЎС‚СЂР°РЅРёС†Р°, РєРѕС‚РѕСЂСѓСЋ РІС‹ РёС‰РµС‚Рµ, РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РёР»Рё Р±С‹Р»Р° РїРµСЂРµРјРµС‰РµРЅР°. Р’РµСЂРЅС‘Рј РІР°СЃ Рє РЅСѓР¶РЅРѕРјСѓ СЂР°Р·РґРµР»Сѓ.
             </motion.p>
           </div>
 
@@ -55,7 +55,7 @@ const NotFound = () => {
             <Button asChild size="lg" className="px-8 py-6 text-base font-light tracking-wide group">
               <Link to="/">
                 <ArrowLeft className="mr-2 size-5 transition-transform group-hover:-translate-x-1" />
-                Вернуться на главную
+                Р’РµСЂРЅСѓС‚СЊСЃСЏ РЅР° РіР»Р°РІРЅСѓСЋ
               </Link>
             </Button>
           </motion.div>
@@ -75,4 +75,3 @@ const NotFound = () => {
 };
 
 export default NotFound;
-

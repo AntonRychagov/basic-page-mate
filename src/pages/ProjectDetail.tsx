@@ -1,9 +1,9 @@
-import { useState } from 'react';
+п»їimport { useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Camera, User, ExternalLink } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
-import { SEOHead } from '@/components/SEOHead';
+import { SEOHead } from '@/components/seo/SEOHead';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { getProjectBySlug, getCategoryLabel } from '@/data/projects';
 import { ImageWithLightbox } from '@/components/portfolio/ImageWithLightbox';
@@ -140,7 +140,7 @@ export default function ProjectDetail() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm md:text-base font-light tracking-wide text-foreground hover:text-muted-foreground transition-colors"
                 >
-                  <span>Смотреть на YouTube</span>
+                  <span>РЎРјРѕС‚СЂРµС‚СЊ РЅР° YouTube</span>
                   <ExternalLink className="size-4" />
                 </a>
               </div>
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
                     <Camera className="size-4" />
-                    <span>Роль</span>
+                    <span>Р РѕР»СЊ</span>
                   </div>
                   <p className="font-light text-foreground">{project.camera}</p>
                 </div>
@@ -160,7 +160,7 @@ export default function ProjectDetail() {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-muted-foreground">
                     <User className="size-4" />
-                    <span>Клиент</span>
+                    <span>РљР»РёРµРЅС‚</span>
                   </div>
                   <p className="font-light text-foreground">{project.client}</p>
                 </div>
@@ -198,7 +198,6 @@ export default function ProjectDetail() {
     </>
   );
 }
-
 
 
 
