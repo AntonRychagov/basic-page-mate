@@ -1,24 +1,22 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { Layout } from "@/components/layout/Layout";
-import { SkipToContent } from "@/components/ui/SkipToContent";
-import { LoadingFallback } from "@/components/ui/LoadingFallback";
-import { PageTransition } from "@/components/ui/PageTransition";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { AnimatePresence } from "framer-motion";
-import { lazy, Suspense } from "react";
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Layout } from '@/components/layout/Layout';
+import { SkipToContent } from '@/components/ui/SkipToContent';
+import { LoadingFallback } from '@/components/ui/LoadingFallback';
+import { PageTransition } from '@/components/ui/PageTransition';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { AnimatePresence } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 
-// Code-split route components for better performance
-const Index = lazy(() => import("./pages/Index"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-const About = lazy(() => import("./pages/About"));
-const Contact = lazy(() => import("./pages/Contact"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+const Index = lazy(() => import('./pages/Index'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const About = lazy(() => import('./pages/About'));
+const Contact = lazy(() => import('./pages/Contact'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 const queryClient = new QueryClient();
 
@@ -84,20 +82,18 @@ function AnimatedRoutes() {
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <SkipToContent />
-            <Layout>
-              <Suspense fallback={<LoadingFallback />}>
-                <AnimatedRoutes />
-              </Suspense>
-            </Layout>
-          </BrowserRouter>
-        </TooltipProvider>
-      </ThemeProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <SkipToContent />
+          <Layout>
+            <Suspense fallback={<LoadingFallback />}>
+              <AnimatedRoutes />
+            </Suspense>
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
     </QueryClientProvider>
   </ErrorBoundary>
 );

@@ -1,13 +1,24 @@
-# Basic Page Mate
+﻿# Lena Velieva Portfolio
 
-Portfolio site built with Vite, React, TypeScript, shadcn-ui, and Tailwind CSS.
+Portfolio site for Lena Velieva built with Vite, React, TypeScript, Tailwind CSS, Radix UI, and Framer Motion.
+
+## Stack
+
+- Vite
+- React 18
+- TypeScript
+- Tailwind CSS 4
+- Radix UI
+- Framer Motion
+- GitHub Pages deployment via GitHub Actions
 
 ## Project Structure
 
-- `src/` application source
+- `src/` application source code
 - `public/` static assets
-- `tailwind-plus/` reference UI library kept in-repo for design inspiration
-- `.github/workflows/deploy-pages.yml` GitHub Pages deployment
+- `src/data/site-content.json` editable site content and project data
+- `.github/workflows/deploy-pages.yml` GitHub Pages deployment workflow
+- `tailwind-plus/` local design reference library
 
 ## Local Development
 
@@ -16,12 +27,25 @@ npm ci
 npm run dev
 ```
 
-The site runs locally at `http://localhost:8080`.
+Local dev server: `http://localhost:8080`
 
-## Production Build
+## Available Scripts
 
 ```sh
+npm run dev
 npm run build
+npm run preview
+npm run lint
 ```
 
-The GitHub Pages workflow builds the site from the repository root and publishes `dist/`.
+## Deploy
+
+Push to the `master` branch to trigger the GitHub Pages workflow.
+
+The Vite `base` path is configured automatically for GitHub Pages in CI using `GITHUB_REPOSITORY`.
+
+## Notes
+
+- Build output in `dist/` is ignored by git and generated in CI.
+- `node_modules/` and local mirrors are ignored by git.
+- Content is stored in UTF-8 and normalized with `.editorconfig` and `.gitattributes`.

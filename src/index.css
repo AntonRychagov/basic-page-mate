@@ -1,53 +1,42 @@
-﻿@import "tailwindcss";
+﻿@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
+@import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+@source not "../tailwind-plus";
 /* ---break---
 */
 @custom-variant dark (&:is(.dark *));
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
-All colors MUST be HSL.
-*/
-
 :root {
-  --background: hsl(0 0% 96%);
-  --foreground: hsl(0 0% 9%);
-  --card: hsl(0 0% 98%);
-  --card-foreground: hsl(0 0% 9%);
-  --popover: hsl(0 0% 89%);
-  --popover-foreground: hsl(0 0% 9%);
-  --primary: hsl(20 90% 48%);
-  --primary-foreground: hsl(33 100% 96%);
-  --secondary: hsl(0 0% 32%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(0 0% 63%);
-  --muted-foreground: hsl(0 0% 9%);
-  --accent: hsl(47 100% 96%);
-  --accent-foreground: hsl(37 92% 50%);
+  --background: hsl(32 24% 95%);
+  --foreground: hsl(220 18% 12%);
+  --card: hsl(30 18% 97%);
+  --card-foreground: hsl(220 18% 12%);
+  --popover: hsl(30 18% 98%);
+  --popover-foreground: hsl(220 18% 12%);
+  --primary: hsl(35 38% 58%);
+  --primary-foreground: hsl(220 22% 10%);
+  --secondary: hsl(28 16% 84%);
+  --secondary-foreground: hsl(220 18% 12%);
+  --muted: hsl(30 16% 90%);
+  --muted-foreground: hsl(220 10% 36%);
+  --accent: hsl(35 34% 88%);
+  --accent-foreground: hsl(220 18% 12%);
   --destructive: hsl(0 72% 50%);
   --destructive-foreground: hsl(0 85% 97%);
-  --border: hsl(0 0% 83%);
-  --input: hsl(0 0% 83%);
-  --ring: hsl(20 90% 48%);
-  --radius: 0.75rem;
-  --sidebar-background: hsl(0 0% 98%);
-  --sidebar-foreground: hsl(0 0% 9%);
-  --sidebar-primary: hsl(20 90% 48%);
-  --sidebar-primary-foreground: hsl(33 100% 96%);
-  --sidebar-accent: hsl(0 0% 32%);
-  --sidebar-accent-foreground: hsl(0 0% 98%);
-  --sidebar-border: hsl(0 0% 83%);
-  --sidebar-ring: hsl(20 90% 48%);
-
-  /* Shugar Design System Variables */
+  --border: hsl(28 18% 82%);
+  --input: hsl(28 18% 82%);
+  --ring: hsl(35 38% 58%);
+  --radius: 1rem;
+  --sidebar-background: hsl(30 18% 97%);
+  --sidebar-foreground: hsl(220 18% 12%);
+  --sidebar-primary: hsl(35 38% 58%);
+  --sidebar-primary-foreground: hsl(220 22% 10%);
+  --sidebar-accent: hsl(35 34% 88%);
+  --sidebar-accent-foreground: hsl(220 18% 12%);
+  --sidebar-border: hsl(28 18% 82%);
+  --sidebar-ring: hsl(35 38% 58%);
   --context-card-border: hsla(0, 0%, 92%, 1);
   --ds-red-800: oklch(58.19% 0.2482 25.15);
   --ds-red-900: oklch(54.99% 0.232 25.29);
@@ -72,9 +61,9 @@ All colors MUST be HSL.
   --chart-4: hsl(24 94% 53%);
   --chart-5: hsl(0 0% 45%);
   --sidebar: hsl(0 0% 98%);
-  --font-sans: 'Roboto', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  --font-serif: 'Libre Caslon Text', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: "Prata", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -88,35 +77,33 @@ All colors MUST be HSL.
 }
 
 .dark {
-  --background: hsl(0 0% 9%);
-  --foreground: hsl(0 0% 98%);
-  --card: hsl(0 0% 14%);
-  --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(0 0% 25%);
-  --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(27 95% 60%);
-  --primary-foreground: hsl(12 81% 14%);
-  --secondary: hsl(0 0% 45%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(0 0% 45%);
-  --muted-foreground: hsl(0 0% 98%);
-  --accent: hsl(20 91% 14%);
-  --accent-foreground: hsl(43 96% 56%);
+  --background: hsl(220 20% 7%);
+  --foreground: hsl(34 38% 94%);
+  --card: hsl(220 16% 10%);
+  --card-foreground: hsl(34 38% 94%);
+  --popover: hsl(220 16% 10%);
+  --popover-foreground: hsl(34 38% 94%);
+  --primary: hsl(34 42% 67%);
+  --primary-foreground: hsl(220 20% 7%);
+  --secondary: hsl(220 12% 18%);
+  --secondary-foreground: hsl(34 38% 94%);
+  --muted: hsl(220 12% 14%);
+  --muted-foreground: hsl(35 17% 70%);
+  --accent: hsl(35 24% 16%);
+  --accent-foreground: hsl(34 38% 94%);
   --destructive: hsl(0 84% 60%);
   --destructive-foreground: hsl(0 85% 97%);
-  --border: hsl(0 0% 32%);
-  --input: hsl(0 0% 32%);
-  --ring: hsl(27 95% 60%);
-  --sidebar-background: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(0 0% 98%);
-  --sidebar-primary: hsl(27 95% 60%);
-  --sidebar-primary-foreground: hsl(12 81% 14%);
-  --sidebar-accent: hsl(43 96% 56%);
-  --sidebar-accent-foreground: hsl(20 91% 14%);
-  --sidebar-border: hsl(0 0% 32%);
-  --sidebar-ring: hsl(27 95% 60%);
-
-  /* Shugar Design System Variables - Dark Mode */
+  --border: hsl(220 10% 22%);
+  --input: hsl(220 10% 22%);
+  --ring: hsl(34 42% 67%);
+  --sidebar-background: hsl(220 16% 10%);
+  --sidebar-foreground: hsl(34 38% 94%);
+  --sidebar-primary: hsl(34 42% 67%);
+  --sidebar-primary-foreground: hsl(220 20% 7%);
+  --sidebar-accent: hsl(35 24% 16%);
+  --sidebar-accent-foreground: hsl(34 38% 94%);
+  --sidebar-border: hsl(220 10% 22%);
+  --sidebar-ring: hsl(34 42% 67%);
   --context-card-border: hsla(0, 0%, 18%, 1);
   --ds-red-800: oklch(58.01% 0.227 25.12);
   --ds-red-900: oklch(69.96% 0.2136 22.03);
@@ -176,8 +163,6 @@ All colors MUST be HSL.
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Shugar Design System Colors */
   --color-context-card-border: var(--context-card-border);
   --color-red-800: var(--ds-red-800);
   --color-red-900: var(--ds-red-900);
@@ -193,11 +178,9 @@ All colors MUST be HSL.
   --color-background-100: var(--ds-background-100);
   --shadow-focus-ring: var(--ds-focus-ring);
   --shadow-border-small: var(--ds-shadow-border-small);
-
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 }
@@ -225,30 +208,44 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #root {
+    min-height: 100vh;
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .hide-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-
-
-
-
-@layer base {
-  body {
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(circle at top, hsl(34 42% 67% / 0.08), transparent 30%),
+      linear-gradient(180deg, hsl(220 18% 8%), hsl(220 18% 7%));
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     user-select: none;
     caret-color: transparent;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   input,
@@ -257,5 +254,100 @@ All colors MUST be HSL.
   [contenteditable="true"] {
     user-select: text;
     caret-color: auto;
+  }
+
+  ::selection {
+    background: hsl(34 42% 67% / 0.28);
+    color: hsl(34 38% 94%);
+  }
+
+  img,
+  video,
+  iframe,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+
+  .font-ui {
+    font-family: var(--font-sans);
+  }
+
+  .font-micro {
+    font-family: var(--font-mono);
+  }
+
+  .section-shell {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  .section-frame {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    @apply text-[0.66rem] uppercase tracking-[0.3em] text-primary/85 md:text-[0.72rem];
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    @apply text-[clamp(1.95rem,4.1vw,3.65rem)] leading-[0.98] text-foreground;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    @apply text-[clamp(2.6rem,7vw,5.4rem)] leading-[0.96] text-foreground;
+  }
+
+  .feature-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    @apply text-[clamp(2.1rem,4.8vw,3.9rem)] leading-[0.96] text-foreground;
+  }
+
+  .lead-copy {
+    @apply text-[clamp(1rem,1.45vw,1.35rem)] font-light leading-[1.55] text-foreground md:leading-[1.6];
+  }
+
+  .body-copy {
+    @apply text-[clamp(0.98rem,1.08vw,1.1rem)] font-light leading-7 text-muted-foreground md:leading-8;
+  }
+
+  .section-copy {
+    @apply text-[clamp(0.98rem,1.08vw,1.1rem)] font-light leading-7 text-muted-foreground md:leading-8;
+  }
+
+  .editorial-link {
+    font-family: var(--font-mono);
+    @apply inline-flex items-center gap-3 text-[0.74rem] uppercase tracking-[0.28em] text-foreground/88 transition-colors hover:text-primary md:text-[0.78rem];
+  }
+
+  .editorial-panel {
+    @apply rounded-[1.5rem] border border-border/80 bg-card/40 backdrop-blur-sm sm:rounded-[1.75rem] md:rounded-[2rem];
+  }
+
+  .card-title {
+    font-family: var(--font-sans);
+    @apply text-[clamp(1rem,1.1vw,1.2rem)] font-medium leading-[1.2] text-white;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

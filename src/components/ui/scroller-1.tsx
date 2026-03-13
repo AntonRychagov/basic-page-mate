@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Advanced Scroller Component (Shugar Design System)
  *
  * A sophisticated scrolling container with smooth animations, gradient overlays,
@@ -270,8 +270,7 @@ export const Scroller = ({
         {items.map((child, index) => (
           <div
             key={index}
-            // @ts-ignore
-            ref={(el) => (itemsRef.current[index] = el)}
+            ref={(el: HTMLDivElement | null) => { itemsRef.current[index] = el; }}
           >
             {child}
           </div>
@@ -320,3 +319,4 @@ export const Scroller = ({
     </div>
   );
 };
+

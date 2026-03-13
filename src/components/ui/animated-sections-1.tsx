@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
@@ -39,7 +39,7 @@ const AnimatedSections: React.FC<AnimatedSectionsProps> = ({
   className = "",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<any>(null);
+  const observerRef = useRef<Observer | null>(null);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
   const splitHeadingsRef = useRef<SplitText[]>([]);
   const currentIndexRef = useRef<number>(-1);
@@ -353,3 +353,4 @@ useEffect(() => {
 };
 
 export default AnimatedSections;
+

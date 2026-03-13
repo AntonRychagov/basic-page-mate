@@ -11,29 +11,34 @@ interface ProjectNavigationProps {
 }
 
 export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
+  const cardBaseClassName = 'group block px-5 py-6 transition-colors duration-300 hover:bg-accent/40 sm:px-6 sm:py-7 md:px-8 md:py-10 xl:px-10 xl:py-12';
+  const titleClassName = 'max-w-[18ch] text-[clamp(1.45rem,4vw,2.55rem)] leading-[1] text-foreground';
+  const metaClassName = 'mt-3 text-sm font-light text-muted-foreground';
+  const labelClassName = 'text-[0.68rem] uppercase tracking-[0.22em] text-muted-foreground transition-colors group-hover:text-foreground';
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-border">
-      <div className={cn('border-b md:border-b-0 md:border-r border-border', !prev && 'opacity-50')}>
+    <div className="grid grid-cols-1 overflow-hidden rounded-[1.5rem] border border-border/70 bg-card/20 md:grid-cols-2 md:rounded-[2rem]">
+      <div className={cn('border-b border-border/70 md:border-b-0 md:border-r', !prev && 'opacity-50')}>
         {prev ? (
-          <Link to={`/project/${prev.slug}`} className="group block p-8 md:p-12 hover:bg-accent transition-colors duration-300">
-            <motion.div className="space-y-4" whileHover={{ x: -5 }} transition={{ duration: 0.3 }}>
-              <div className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
-                <ArrowLeft className="size-5" />
-                <span className="text-sm font-light tracking-wide uppercase">Предыдущий проект</span>
+          <Link to={`/project/${prev.slug}`} className={cardBaseClassName}>
+            <motion.div className="space-y-5" whileHover={{ x: -4 }} transition={{ duration: 0.25 }}>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <ArrowLeft className="size-4 shrink-0" />
+                <span className={labelClassName}>Предыдущий проект</span>
               </div>
               <div>
-                <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground">{prev.title}</h3>
-                <p className="text-sm text-muted-foreground font-light mt-2">
+                <h3 className={titleClassName}>{prev.title}</h3>
+                <p className={metaClassName}>
                   {getCategoryLabel(prev.category)} | {prev.year}
                 </p>
               </div>
             </motion.div>
           </Link>
         ) : (
-          <div className="p-8 md:p-12">
+          <div className="px-5 py-6 sm:px-6 sm:py-7 md:px-8 md:py-10 xl:px-10 xl:py-12">
             <div className="flex items-center gap-3 text-muted-foreground">
-              <ArrowLeft className="size-5" />
-              <span className="text-sm font-light tracking-wide uppercase">Нет предыдущего проекта</span>
+              <ArrowLeft className="size-4 shrink-0" />
+              <span className="text-[0.68rem] uppercase tracking-[0.22em]">Нет предыдущего проекта</span>
             </div>
           </div>
         )}
@@ -41,25 +46,25 @@ export function ProjectNavigation({ prev, next }: ProjectNavigationProps) {
 
       <div className={cn(!next && 'opacity-50')}>
         {next ? (
-          <Link to={`/project/${next.slug}`} className="group block p-8 md:p-12 hover:bg-accent transition-colors duration-300">
-            <motion.div className="space-y-4 text-right" whileHover={{ x: 5 }} transition={{ duration: 0.3 }}>
-              <div className="flex items-center justify-end gap-3 text-muted-foreground group-hover:text-foreground transition-colors">
-                <span className="text-sm font-light tracking-wide uppercase">Следующий проект</span>
-                <ArrowRight className="size-5" />
+          <Link to={`/project/${next.slug}`} className={cardBaseClassName}>
+            <motion.div className="space-y-5" whileHover={{ x: 4 }} transition={{ duration: 0.25 }}>
+              <div className="flex items-center gap-3 text-muted-foreground md:justify-end">
+                <span className={cn(labelClassName, 'order-2 md:order-1')}>Следующий проект</span>
+                <ArrowRight className="order-1 size-4 shrink-0 md:order-2" />
               </div>
-              <div>
-                <h3 className="text-2xl md:text-3xl font-light tracking-wide text-foreground">{next.title}</h3>
-                <p className="text-sm text-muted-foreground font-light mt-2">
+              <div className="md:text-right">
+                <h3 className={cn(titleClassName, 'md:ml-auto')}>{next.title}</h3>
+                <p className={metaClassName}>
                   {getCategoryLabel(next.category)} | {next.year}
                 </p>
               </div>
             </motion.div>
           </Link>
         ) : (
-          <div className="p-8 md:p-12 text-right">
-            <div className="flex items-center justify-end gap-3 text-muted-foreground">
-              <span className="text-sm font-light tracking-wide uppercase">Нет следующего проекта</span>
-              <ArrowRight className="size-5" />
+          <div className="px-5 py-6 sm:px-6 sm:py-7 md:px-8 md:py-10 xl:px-10 xl:py-12 md:text-right">
+            <div className="flex items-center gap-3 text-muted-foreground md:justify-end">
+              <span className="text-[0.68rem] uppercase tracking-[0.22em]">Нет следующего проекта</span>
+              <ArrowRight className="size-4 shrink-0" />
             </div>
           </div>
         )}
