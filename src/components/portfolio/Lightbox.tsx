@@ -1,4 +1,4 @@
-ï»¿import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -20,6 +20,14 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
   const currentImage = images[currentIndex];
   const totalImages = images.length;
 
+  const handlePrevious = useCallback(() => {
+    if (currentIndex > 0) onNavigate(currentIndex - 1);
+  }, [currentIndex, onNavigate]);
+
+  const handleNext = useCallback(() => {
+    if (currentIndex < totalImages - 1) onNavigate(currentIndex + 1);
+  }, [currentIndex, onNavigate, totalImages]);
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -35,7 +43,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isOpen, currentIndex]);
+  }, [handleNext, handlePrevious, isOpen, onClose]);
 
   const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.targetTouches[0].clientX);
   const handleTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
@@ -54,14 +62,6 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
     setTouchEnd(0);
   };
 
-  const handlePrevious = () => {
-    if (currentIndex > 0) onNavigate(currentIndex - 1);
-  };
-
-  const handleNext = () => {
-    if (currentIndex < totalImages - 1) onNavigate(currentIndex + 1);
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent
@@ -74,7 +74,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
             size="icon"
             onClick={onClose}
             className="absolute top-4 right-4 z-50 size-10 text-white hover:bg-white/10 rounded-full"
-            aria-label="Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð³Ð°Ð»ÐµÑ€ÐµÑŽ"
+            aria-label="Çàêðûòü ãàëåðåþ"
           >
             <X className="size-6" />
           </Button>
@@ -89,7 +89,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
               size="icon"
               onClick={handlePrevious}
               className="absolute left-4 z-50 size-12 text-white hover:bg-white/10 rounded-full"
-              aria-label="ÐŸÑ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ"
+              aria-label="Ïðåäûäóùåå èçîáðàæåíèå"
             >
               <ChevronLeft className="size-8" />
             </Button>
@@ -101,7 +101,7 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
               size="icon"
               onClick={handleNext}
               className="absolute right-4 z-50 size-12 text-white hover:bg-white/10 rounded-full"
-              aria-label="Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰ÐµÐµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ"
+              aria-label="Ñëåäóþùåå èçîáðàæåíèå"
             >
               <ChevronRight className="size-8" />
             </Button>
@@ -146,3 +146,5 @@ export function Lightbox({ images, currentIndex, isOpen, onClose, onNavigate }: 
     </Dialog>
   );
 }
+
+

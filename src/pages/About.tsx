@@ -1,15 +1,15 @@
-п»їimport { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Instagram, Linkedin } from 'lucide-react';
 import { photographerInfo } from '@/data/photographer';
 import { Separator } from '@/components/ui/separator';
-import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOHead } from '@/components/SEOHead';
 
 export default function About() {
   return (
     <>
       <SEOHead
-        title="РћР±Рѕ РјРЅРµ"
-        description={`РЈР·РЅР°Р№С‚Рµ Р±РѕР»СЊС€Рµ Рѕ ${photographerInfo.name}: ${photographerInfo.tagline}. ${photographerInfo.biography.split('\n\n')[0]}`}
+        title="Обо мне"
+        description={`Узнайте больше о ${photographerInfo.name}: ${photographerInfo.tagline}. ${photographerInfo.biography.split('\n\n')[0]}`}
         image={photographerInfo.portraitImage}
       />
 
@@ -21,8 +21,8 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">РћР±Рѕ РјРЅРµ</h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">РЎС†РµРЅР°СЂРёСЃС‚ Рё СЂРµР¶РёСЃСЃС‘СЂ РІРёР·СѓР°Р»СЊРЅС‹С… РёСЃС‚РѕСЂРёР№</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">Обо мне</h1>
+              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">Сценарист и режиссёр визуальных историй</p>
             </motion.div>
           </div>
         </section>
@@ -52,7 +52,7 @@ export default function About() {
                     }}
                   >
                     <source src="https://videos.pexels.com/video-files/3888252/3888252-sd_426_226_25fps.mp4" type="video/mp4" />
-                    Р’Р°С€ Р±СЂР°СѓР·РµСЂ РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚ РІРѕСЃРїСЂРѕРёР·РІРµРґРµРЅРёРµ РІРёРґРµРѕ.
+                    Ваш браузер не поддерживает воспроизведение видео.
                   </video>
                 </div>
 
@@ -139,7 +139,7 @@ export default function About() {
                     </a>
                   </div>
                   <div className="text-sm font-light tracking-wide">
-                    <span className="text-muted-foreground">Р›РѕРєР°С†РёСЏ: </span>
+                    <span className="text-muted-foreground">Локация: </span>
                     <span className="text-foreground">{photographerInfo.location}</span>
                   </div>
                 </div>
@@ -151,4 +151,5 @@ export default function About() {
     </>
   );
 }
+
 

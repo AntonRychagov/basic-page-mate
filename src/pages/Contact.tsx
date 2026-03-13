@@ -1,15 +1,15 @@
-п»їimport { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { photographerInfo } from '@/data/photographer';
 import { Separator } from '@/components/ui/separator';
-import { SEOHead } from '@/components/seo/SEOHead';
+import { SEOHead } from '@/components/SEOHead';
 
 export default function Contact() {
   return (
     <>
       <SEOHead
-        title="РљРѕРЅС‚Р°РєС‚С‹"
-        description={`РЎРІСЏР¶РёС‚РµСЃСЊ СЃ ${photographerInfo.name} РїРѕ РІРѕРїСЂРѕСЃР°Рј СЂРµР¶РёСЃСЃСѓСЂС‹, СЃС†РµРЅР°СЂРёСЏ, РјСѓР·С‹РєР°Р»СЊРЅС‹С… РєР»РёРїРѕРІ Рё РєРѕР»Р»Р°Р±РѕСЂР°С†РёР№. ${photographerInfo.availability}`}
+        title="Контакты"
+        description={`Свяжитесь с ${photographerInfo.name} по вопросам режиссуры, сценария, музыкальных клипов и коллабораций. ${photographerInfo.availability}`}
       />
 
       <div className="min-h-screen">
@@ -20,8 +20,8 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">РЎРІСЏР·Р°С‚СЊСЃСЏ</h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">РљРѕРЅС‚Р°РєС‚С‹ РґР»СЏ СЃРІСЏР·Рё</p>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide mb-4">Связаться</h1>
+              <p className="text-lg md:text-xl text-muted-foreground font-light tracking-wide">Контакты для связи</p>
             </motion.div>
           </div>
         </section>
@@ -35,9 +35,9 @@ export default function Contact() {
               transition={{ duration: 0.4 }}
             >
               <div className="space-y-3 text-center">
-                <h2 className="text-3xl md:text-4xl font-light tracking-wide">РљРѕРЅС‚Р°РєС‚РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</h2>
+                <h2 className="text-3xl md:text-4xl font-light tracking-wide">Контактная информация</h2>
                 <p className="text-muted-foreground font-light">
-                  Р¤РѕСЂРјР° РѕР±СЂР°С‚РЅРѕР№ СЃРІСЏР·Рё РІСЂРµРјРµРЅРЅРѕ РѕС‚РєР»СЋС‡РµРЅР°. Р’С‹ РјРѕР¶РµС‚Рµ СЃРІСЏР·Р°С‚СЊСЃСЏ РЅР°РїСЂСЏРјСѓСЋ РїРѕ РєРѕРЅС‚Р°РєС‚Р°Рј РЅРёР¶Рµ.
+                  Форма обратной связи временно отключена. Вы можете связаться напрямую по контактам ниже.
                 </p>
               </div>
 
@@ -64,7 +64,7 @@ export default function Contact() {
                     <Phone className="size-5 text-muted-foreground" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-sm font-light tracking-wide text-muted-foreground">РўРµР»РµС„РѕРЅ</p>
+                    <p className="text-sm font-light tracking-wide text-muted-foreground">Телефон</p>
                     <a
                       href={`tel:${photographerInfo.phone}`}
                       className="text-base md:text-lg font-light hover:text-muted-foreground transition-colors"
@@ -79,7 +79,7 @@ export default function Contact() {
                     <MapPin className="size-5 text-muted-foreground" />
                   </div>
                   <div className="space-y-1">
-                    <p className="text-sm font-light tracking-wide text-muted-foreground">Р›РѕРєР°С†РёСЏ</p>
+                    <p className="text-sm font-light tracking-wide text-muted-foreground">Локация</p>
                     <p className="text-base md:text-lg font-light">{photographerInfo.location}</p>
                   </div>
                 </div>
@@ -93,4 +93,5 @@ export default function Contact() {
     </>
   );
 }
+
 
